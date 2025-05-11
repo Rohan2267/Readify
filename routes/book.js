@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const Book = require("../models/book")
+const mongoose = require("mongoose"); 
 const {authenticateToken} = require("./userAuth");
 const { route } = require("./user");
 
@@ -32,7 +33,7 @@ router.post("/add-book", authenticateToken, async (req, res ) => {
 //update book
 router.put("/update-book", authenticateToken, async ( req, res) => {
     try {
-        const { bookid } = req.headers.bookid;
+        const  bookid  = req.headers.bookid;
 
 
         console.log("bookid:", bookid);
